@@ -5,27 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6397eb89-c611-4e90-a9ad-4426d7ef723d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/READMAP.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/document.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/document_process.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prompt_template.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_translator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/sample/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/sample/ipynp/model_laboratory.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/sample/ipynp/model_laboratory.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/sample/markdown/getting_started.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/sample/markdown/langchain-readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/sample/translator.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_document_process.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_spliter.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/translator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/translator.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/伪代码.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GPT编码过程.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/document_process.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/sample/ipynp/model_laboratory.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/tests/sample/notebook/model_laboratory.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/sample/ipynp/model_laboratory.json" beforeDir="false" afterPath="$PROJECT_DIR$/tests/sample/notebook/model_laboratory.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_document_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_document_process.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_spliter.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_spliter.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +43,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "dev",
     "last_opened_file_path": "D:/mycode/GPT-doc-translator/tests/sample/markdown",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -82,8 +68,8 @@
       <recent name="D:\mycode\GPT-doc-translator\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for test_document_process.TestMarkdownProcessor">
-    <configuration name="Python tests for test_config.MyTestCase.test_config_load" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python tests.Python tests for test_document_process.NotebookProcessorTest">
+    <configuration name="Python tests for test_document_process.NotebookProcessorTest" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="GPT-doc-translator" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -94,7 +80,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_config.MyTestCase.test_config_load&quot;" />
+      <option name="_new_target" value="&quot;test_document_process.NotebookProcessorTest&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -113,7 +99,7 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test_document_process.TestMarkdownProcessor.test_combine_pieces" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test_document_process.TestMarkdownProcessor.test_split_document" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="GPT-doc-translator" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -124,7 +110,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_document_process.TestMarkdownProcessor.test_combine_pieces&quot;" />
+      <option name="_new_target" value="&quot;test_document_process.TestMarkdownProcessor.test_split_document&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -160,11 +146,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Python tests for test_document_process.TestMarkdownProcessor" />
-        <item itemvalue="Python tests.Python tests for test_document_process.TestMarkdownProcessor.test_combine_pieces" />
-        <item itemvalue="Python tests.Python tests for test_document_process.TestMarkdownProcessor.test_split_document_max_length" />
+        <item itemvalue="Python tests.Python tests for test_document_process.NotebookProcessorTest" />
         <item itemvalue="Python tests.Python tests for test_document_process.TestMarkdownProcessor.test_split_document_code_block" />
-        <item itemvalue="Python tests.Python tests for test_config.MyTestCase.test_config_load" />
+        <item itemvalue="Python tests.Python tests for test_document_process.TestMarkdownProcessor" />
+        <item itemvalue="Python tests.Python tests for test_document_process.TestMarkdownProcessor.test_split_document_max_length" />
+        <item itemvalue="Python tests.Python tests for test_document_process.TestMarkdownProcessor.test_split_document" />
       </list>
     </recent_temporary>
   </component>
@@ -180,6 +166,7 @@
       <workItem from="1685462202851" duration="3000" />
       <workItem from="1685462223405" duration="367000" />
       <workItem from="1685462600211" duration="40170000" />
+      <workItem from="1685981313914" duration="4827000" />
     </task>
     <servers />
   </component>
@@ -201,14 +188,24 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/tests/test_document_process.py</url>
-          <line>16</line>
-          <option name="timeStamp" value="4" />
+          <line>63</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tests/test_document_process.py</url>
+          <line>46</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/document_process.py</url>
+          <line>117</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/GPT_doc_translator$.coverage" NAME=" Coverage Results" MODIFIED="1685902202600" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/GPT_doc_translator$.coverage" NAME=" Coverage Results" MODIFIED="1685986129688" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/GPT_doc_translator$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1685874089931" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

@@ -2,6 +2,9 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, List
+import nbformat
+from nbformat.v4 import new_notebook, new_code_cell, new_markdown_cell
+
 
 @dataclass
 class TranslateContext:
@@ -11,6 +14,7 @@ class TranslateContext:
     target_path: Path
     option: Any  # Replace with actual Config type
 
+
 class DocumentPiece:
     def __init__(self, text, piece_type, metadata=None):
         self.text = text
@@ -18,8 +22,8 @@ class DocumentPiece:
         self.length = len(text)
         self.metadata = metadata if metadata else {}
 
-class DocumentProcessor(ABC):
 
+class DocumentProcessor(ABC):
     def __init__(self, translator, context: TranslateContext):
         self.translator = translator
         self.context = context
@@ -51,8 +55,8 @@ class DocumentProcessor(ABC):
         translated_document = self.combine_pieces(translated_pieces)
         self.save_document(translated_document)
 
-class MarkdownProcessor(DocumentProcessor):
 
+class MarkdownProcessor(DocumentProcessor):
     def read_document(self, filepath):
         with open(filepath, 'r', encoding='utf-8') as f:
             return f.read()
@@ -62,32 +66,35 @@ class MarkdownProcessor(DocumentProcessor):
         pieces = []
         buffer = ""
         in_code_block = False
+        length = 0
 
         for line in lines:
             stripped = line.strip()
-            if stripped.startswith("```"):  # Check for start or end of a code block
+            if stripped.startswith("```") or stripped.startswith("    "):  # Check for start or end of a code block
                 if in_code_block:  # Code block ends
-                    buffer += line + "\n\n"  # Include the code block delimiter line and add a newline
                     pieces.append(DocumentPiece(buffer, "code"))
                     buffer = ""
                     in_code_block = False
                 else:  # Code block starts
                     if buffer:  # Add the previous buffered text as a piece
-                        pieces.append(DocumentPiece(buffer + "\n", "text"))  # add newline for consistency
+                        pieces.append(DocumentPiece(buffer, "text"))
                         buffer = ""
-                    buffer += line + "\n"  # Include the code block delimiter line
+                    buffer += line  # Don't add newline if buffer is empty
                     in_code_block = True
             elif in_code_block:  # Inside a code block
-                buffer += line + "\n"
+                buffer += "\n" + line
             else:  # Normal text
-                if len(buffer) + len(line) + 1 > max_length:  # +1 for the newline character
-                    pieces.append(DocumentPiece(buffer + "\n", "text"))  # add newline for consistency
-                    buffer = line
+                temp_len = length + len(line) + 1  # +1 for the newline character
+                if temp_len > max_length:  # current line would exceed the max_length
+                    pieces.append(DocumentPiece(buffer, "text"))
+                    buffer = line  # Don't add newline if buffer is empty
+                    length = len(line)
                 else:
-                    buffer += line + "\n"
+                    buffer += "\n" + line if buffer else line  # Don't add newline if buffer is empty
+                    length = temp_len
 
         if buffer:  # Remaining text
-            pieces.append(DocumentPiece(buffer + "\n", "text" if not in_code_block else "code"))
+            pieces.append(DocumentPiece(buffer, "text" if not in_code_block else "code"))
 
         return pieces
 
@@ -102,13 +109,66 @@ class MarkdownProcessor(DocumentProcessor):
                     source_language=self.context.source_lang,
                     target_language=self.context.target_lang,
                     options=self.context.option
-                ) + '\n'  # Ensure a newline at the end
+                )
                 translated_pieces.append(DocumentPiece(translated_text, "text"))
-            return translated_pieces
+        return translated_pieces
 
     def combine_pieces(self, pieces):
-        return ''.join(piece.text for piece in pieces)
+
+        return "\n".join((piece.text for piece in pieces))
 
     def save_document(self, document):
         with open(self.context.target_path, 'w', encoding='utf-8') as f:
             f.write(document)
+
+
+class NotebookProcessor(DocumentProcessor):
+    def read_document(self, filepath):
+        with open(filepath, 'r', encoding='utf-8') as f:
+            return nbformat.read(f, as_version=4)
+
+    def split_document(self, document: nbformat.notebooknode.NotebookNode, max_length: int) -> List[DocumentPiece]:
+        pieces = []
+        for cell in document.cells:
+            if cell.cell_type == "markdown":
+                # Split Markdown cell into pieces
+                markdown_pieces = self._split_markdown_cell(cell, max_length)
+                pieces.extend(markdown_pieces)
+            elif cell.cell_type == "code":
+                # Treat code cell as a single piece
+                pieces.append(DocumentPiece(cell.source, "code", metadata={"cell_type": "code"}))
+        return pieces
+
+    def _split_markdown_cell(self, cell, max_length):
+        # Reuse the MarkdownProcessor's logic to split markdown text
+        markdown_processor = MarkdownProcessor(self.translator, self.context)
+        return markdown_processor.split_document(cell.source, max_length)
+
+    def translate_pieces(self, pieces):
+        translated_pieces = []
+        for piece in pieces:
+            if piece.type == "code":  # skip code blocks
+                translated_pieces.append(piece)
+            else:
+                translated_text = self.translator.translate(
+                    piece.text,
+                    source_language=self.context.source_lang,
+                    target_language=self.context.target_lang,
+                    options=self.context.option
+                )
+                translated_pieces.append(DocumentPiece(translated_text, "text"))
+        return translated_pieces
+
+    def combine_pieces(self, pieces):
+        nb = new_notebook()
+        for piece in pieces:
+            if piece.type == "code":
+                cell = new_code_cell(piece.text)
+            else:
+                cell = new_markdown_cell(piece.text)
+            nb.cells.append(cell)
+        return nb
+
+    def save_document(self, document):
+        with open(self.context.target_path, 'w', encoding='utf-8') as f:
+            nbformat.write(document, f)

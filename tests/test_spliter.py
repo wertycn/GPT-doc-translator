@@ -4,7 +4,7 @@ from langchain.document_loaders import NotebookLoader
 class SpliterTestCase(unittest.TestCase):
     def test_loader(self):
 
-        loader = NotebookLoader("./sample/ipynp/model_laboratory.ipynb")
+        loader = NotebookLoader("sample/notebook/model_laboratory.ipynb")
         document = loader.load()
         documents = loader.load_and_split()
         print(document)
