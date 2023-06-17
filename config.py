@@ -8,9 +8,21 @@ from langchain.schema import BaseMessage, SystemMessage, HumanMessage, AIMessage
 
 
 @dataclass
-class Config:
-    global_option: dict
-    file_option: dict
+class APIConfig:
+    key: str
+    base_url: str
+
+
+@dataclass
+class ContextOption:
+    path: str
+    content: str
+
+
+@dataclass
+class ContextConfig:
+    global_context: str
+    custom_context: List[ContextOption]
 
 
 @dataclass
@@ -31,6 +43,11 @@ class PromptConfig:
     def is_exist_prompt(self, type: str):
         return type in self.few_shot and self.few_shot[type] is not None
 
+@dataclass()
+class TranslateConfig:
+    source_lang: str
+    target_lang: str
+    split_length: int
 
 class GlobalConfig:
     prompt_template: BaseMessage
@@ -41,25 +58,54 @@ class ConfigLoader:
     配置加载类，负责配置文件读取，格式转换
     """
     prompt: PromptConfig
+    context: ContextConfig
+    api: APIConfig
     path: str
+    split_length: int
+    translate: TranslateConfig
 
     def __init__(self, path):
         self.path = path
+
 
     def load(self):
         p = Path(self.path)
         with open(p, 'r', encoding='utf-8') as f:
             data = yaml.safe_load(f)
 
+        self._load_translate(data['translate'])
         #  prompt 处理
         self._load_prompt(data['prompt'])
-        print(self.prompt)
+
+        # 上下文处理
+        self._load_context(data['context'])
+
+        # API配置处理
+        self._load_api(data['api'])
+
+
 
     def _load_prompt(self, data):
-        few_shot: Dict = {}
+        shot: Dict = {}
         for key, item in data['few-shot'].items():
-            few_shot[key] = self._format_prompt(item)
-        self.prompt = PromptConfig(system=SystemMessage(content=data['system']), few_shot=few_shot)
+            shot[key] = self._format_prompt(item)
+        self.prompt = PromptConfig(system=SystemMessage(content=data['system']), few_shot=shot)
+
+    def _load_context(self, data):
+        custom_context = [ContextOption(path=item['path'], content=item['content']) for item in data['custom']]
+        self.context = ContextConfig(global_context=data['global'], custom_context=custom_context)
+
+    def _load_api(self, data):
+        self.api = APIConfig(key=data['key'], base_url=data['base_url'])
+        self.split_length = data['split_length']
+
+    def get_context_for_file(self, file_path: str) -> str:
+        matched_contexts = [option for option in self.context.custom_context if file_path.startswith(option.path)]
+        if matched_contexts:
+            # 从所有匹配的上下文中，返回路径最长的那个上下文
+            best_match = max(matched_contexts, key=lambda option: len(option.path))
+            return best_match.content
+        return self.context.global_context
 
     def get_prompt(self):
         return self.prompt
@@ -74,3 +120,9 @@ class ConfigLoader:
             res.append(HumanMessage(content=item['user']))
             res.append(AIMessage(content=item['llm']))
         return res
+
+    def get_split_length(self):
+        return self.split_length;
+
+    def _load_translate(self, data):
+        self.translate = TranslateConfig(data['source_lang'],data['target_lang'],data['split_length'])

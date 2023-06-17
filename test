@@ -1,0 +1,7 @@
+Python:
+def perform_analysis(df):
+    df = df.sort_values(by=['Subject\\Time']) # sort data in ascending order by Subject\Time column
+    return render_linechart(df, "Subject\\Time", "YoY Net Profit Growth Rate", "YoY Net profit growth over the past 10 years", "A line chart showing the trend of YoY net profit growth over the last 10 years.")
+Explanation:
+To generate a line chart of the YoY net profit growth over the last ten years, we first sort the data in ascending order, taking in account the subject time column, ensuring that we only plot the results from the past 10 years.
+We then make use of the "line chart" function to create an appropriate visualization of this data. The resulting line chart will show the trend of YoY net profit growth over the past 10 years.

@@ -1,0 +1,50 @@
+@startuml
+
+class DocumentProcessor {
+    +read_document(filepath: str): Any
+    +split_document(document: Any, max_length: int): List[DocumentPiece]
+    +translate_pieces(pieces: List[DocumentPiece]): List[DocumentPiece]
+    +combine_pieces(pieces: List[DocumentPiece]): Any
+    +save_document(document: Any): None
+}
+
+class DocumentProcessorFactory {
+    +get_processor(file_type: str, translator: Translator, context: TranslateContext): DocumentProcessor
+}
+
+class DocumentTranslator {
+    +translate_all(max_length: int = 5000): None
+}
+
+class FileListProvider {
+    +get_files(): Iterable[Tuple[str, str]]
+}
+
+class FileCollector {
+    +get_files(): Iterable[Tuple[str, str]]
+}
+
+class DirectoryTranslationManager {
+    +translate_all(max_length: int = 5000): None
+}
+
+class ConfigLoader {
+    +load(): None
+}
+
+class ChatTranslator {
+    +translate(text: str, options: TranslateContext): str
+}
+
+DocumentProcessor <|-- MarkdownProcessor
+DocumentProcessor <|-- NotebookProcessor
+DocumentProcessor <|-- RstProcessor
+DocumentProcessor o-- ChatTranslator
+DocumentProcessorFactory o-- DocumentProcessor
+DocumentTranslator o-- DocumentProcessorFactory
+DocumentTranslator o-- FileListProvider
+FileListProvider <|-- FileCollector
+DirectoryTranslationManager o-- DocumentTranslator
+DirectoryTranslationManager o-- ConfigLoader
+
+@enduml

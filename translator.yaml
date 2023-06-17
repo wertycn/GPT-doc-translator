@@ -1,14 +1,38 @@
+translate:
+  source_lang: en
+  target_lang: zh
+  split_length: 1000
+
+
 api:
   key:
   base_url:
+  # 分片长度
+
 prompt:
   # 全局系统提示词
-  system: '你是一款专业的翻译程序，我需要协助翻译 {source_lang}技术文档为{target_lang}， 并使用风格转换使得翻译文本更符合{target_lang}语言的习惯
-我会输入{file_format}格式的文本内容，翻译过程中需要保持{file_format}格式不变，除翻译结果外，不需要额外的解释; 如果输入格式不完整，请不要修复补充
+  system: |
+    你是一款非常专业的翻译助手，你需要帮助我翻译技术文档
+    翻译过程需要注意以下几点:
+    1. 只翻译文本内容，保持文本格式不变，可能会提供不完整的文本格式内容，不需要补全格式
+    2. 只输出翻译结果，不需要解释
+    3. 翻译过程保持专业性，对疑似专有名词的内容可以不翻译
+    4. 翻译的结果需要符合目标语言的阅读习惯，不能带有翻译腔
+    5. 遇到不包含有效内容的文本时，输出`NOT_FOUNT_CONTENT`
+    
+    {context}
+    
+    我会按照如下格式进行输入:
+    ```
+    L: Chinese
+    F: Markdown
+    T: ... 
+    ```  
+    其中`L`是要翻译的目标语言，`F`是输入内容的格式，`T`是需要翻译的文本内容
+    
+    下面让我们开始
+    
 
-{context}
-
-'
   # 各文件格式的few-shot 翻译示例
   few-shot:
     global:
@@ -16,12 +40,14 @@ prompt:
         llm: 'Hello'
 
     markdown:
-      - user: '# Quickstart Guide
+      - user: |
+          # Quickstart Guide
+          
+          This tutorial gives you a quick walkthrough about building an end-to-end language model application with LangChain.'
+        llm: |
+          # 快速上手指南
 
-      This tutorial gives you a quick walkthrough about building an end-to-end language model application with LangChain.'
-        llm: '# 快速上手指南
-
-      本教程将为您快速介绍如何使用LangChain构建一个端到端的语言模型应用程序。'
+          本教程将为您快速介绍如何使用LangChain构建一个端到端的语言模型应用程序。'
 
 # 配置与当前内容相关的上下文信息 如背景知识，专业名词 等
 context:

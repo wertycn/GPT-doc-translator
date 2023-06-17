@@ -5,9 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6397eb89-c611-4e90-a9ad-4426d7ef723d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Translate.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/GPT 编码过程/整体处理.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/GPT 编码过程/整体设计.plantuml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/GPT 编码过程/文档处理部分过程.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/GPT 编码过程/翻译部分编码实现.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document_translator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prompt.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/document_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/document_process.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GPT编码过程.md" beforeDir="false" afterPath="$PROJECT_DIR$/GPT编码过程.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/GPT 编码过程/配置相关编码实现.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/GPT 编码过程/配置相关编码实现.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/sample/notebook/model_laboratory.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/tests/sample/notebook/model_laboratory.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/sample/notebook/test_model_laboratory.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/tests/sample/notebook/test_model_laboratory.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/sample/translator.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/tests/sample/translator.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/translator.py" beforeDir="false" afterPath="$PROJECT_DIR$/translator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/translator.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/translator.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,29 +50,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "dev",
-    "last_opened_file_path": "D:/mycode/GPT-doc-translator/tests/sample/markdown",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.notebooks.jupyter.connections.configuration.JupyterServerConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/mycode/stock-chart-ai&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.notebooks.jupyter.connections.configuration.JupyterServerConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\mycode\GPT-doc-translator\docs\GPT 编码过程" />
       <recent name="D:\mycode\GPT-doc-translator\tests\sample\markdown" />
       <recent name="D:\mycode\GPT-doc-translator\tests" />
       <recent name="D:\mycode\GPT-doc-translator\tests\sample\ipynp" />
       <recent name="D:\mycode\GPT-doc-translator\test\sample\ipynp" />
-      <recent name="D:\mycode\GPT-doc-translator\test\sample\markdown" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\mycode\GPT-doc-translator\tests\sample" />
@@ -64,8 +81,52 @@
       <recent name="D:\mycode\GPT-doc-translator\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for test_document_process.NotebookProcessorTest">
-    <configuration name="Python tests for test_document_process.NotebookProcessorTest" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.Translate">
+    <configuration name="Translate" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GPT-doc-translator" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Translate.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="translator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GPT-doc-translator" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/translator.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_config.TestConfigLoader" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="GPT-doc-translator" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -76,11 +137,11 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_document_process.NotebookProcessorTest&quot;" />
+      <option name="_new_target" value="&quot;test_config.TestConfigLoader&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test_document_process.NotebookProcessorTest.test_notebook_processor" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test_config.TestConfigLoader.test_get_context_for_file" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="GPT-doc-translator" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -91,11 +152,11 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_document_process.NotebookProcessorTest.test_notebook_processor&quot;" />
+      <option name="_new_target" value="&quot;test_config.TestConfigLoader.test_get_context_for_file&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test_document_process.TestMarkdownProcessor" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test_config.TestConfigLoader.test_prompt_loading" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="GPT-doc-translator" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -106,47 +167,17 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_document_process.TestMarkdownProcessor&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Python tests for test_document_process.TestMarkdownProcessor.test_split_document_code_block" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="GPT-doc-translator" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_document_process.TestMarkdownProcessor.test_split_document_code_block&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Python tests for test_document_process.TestMarkdownProcessor.test_split_document_max_length" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="GPT-doc-translator" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_document_process.TestMarkdownProcessor.test_split_document_max_length&quot;" />
+      <option name="_new_target" value="&quot;test_config.TestConfigLoader.test_prompt_loading&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Python tests for test_document_process.NotebookProcessorTest" />
-        <item itemvalue="Python tests.Python tests for test_document_process.TestMarkdownProcessor" />
-        <item itemvalue="Python tests.Python tests for test_document_process.NotebookProcessorTest.test_notebook_processor" />
-        <item itemvalue="Python tests.Python tests for test_document_process.TestMarkdownProcessor.test_split_document_code_block" />
-        <item itemvalue="Python tests.Python tests for test_document_process.TestMarkdownProcessor.test_split_document_max_length" />
+        <item itemvalue="Python.Translate" />
+        <item itemvalue="Python.translator" />
+        <item itemvalue="Python tests.Python tests for test_config.TestConfigLoader.test_get_context_for_file" />
+        <item itemvalue="Python tests.Python tests for test_config.TestConfigLoader" />
+        <item itemvalue="Python tests.Python tests for test_config.TestConfigLoader.test_prompt_loading" />
       </list>
     </recent_temporary>
   </component>
@@ -163,6 +194,12 @@
       <workItem from="1685462223405" duration="367000" />
       <workItem from="1685462600211" duration="40170000" />
       <workItem from="1685981313914" duration="8480000" />
+      <workItem from="1686237442416" duration="19415000" />
+      <workItem from="1686482068250" duration="7430000" />
+      <workItem from="1686808966536" duration="2850000" />
+      <workItem from="1686879532583" duration="1060000" />
+      <workItem from="1686899816583" duration="71000" />
+      <workItem from="1686990943922" duration="12577000" />
     </task>
     <servers />
   </component>
@@ -176,11 +213,6 @@
           <url>file://$PROJECT_DIR$/tests/test_spliter.py</url>
           <line>9</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://C:/ProgramData/anaconda3/envs/3-10/Lib/site-packages/langchain/schema.py</url>
-          <line>78</line>
-          <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/tests/test_document_process.py</url>
@@ -201,7 +233,9 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/GPT_doc_translator$.coverage" NAME=" Coverage Results" MODIFIED="1686068153248" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/GPT_doc_translator$.coverage" NAME=" Coverage Results" MODIFIED="1686398032214" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/GPT_doc_translator$translator.coverage" NAME="translator Coverage Results" MODIFIED="1687010123049" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/GPT_doc_translator$Translate.coverage" NAME="Translate Coverage Results" MODIFIED="1687016048528" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/GPT_doc_translator$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1685874089931" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

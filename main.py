@@ -1,12 +1,10 @@
 import yaml
 
-
+from config import ConfigLoader
 
 if __name__ == '__main__':
     pass
     print("welcome use GPT doc translator")
+    loader = ConfigLoader("translator.yaml")
 
-    with open('translator.yaml', 'r',encoding="utf8") as f:
-        options = yaml.safe_load(f)
 
-    print(options)
